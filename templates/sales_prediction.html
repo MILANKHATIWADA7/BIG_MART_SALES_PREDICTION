@@ -1,0 +1,167 @@
+{% include 'components/header.html' %}
+<style>
+  .wrapper{
+    padding: 50px;
+  }
+</style>
+<body>
+  <!-- header -->
+  <div class="agileits_header">
+    <div class="container">
+      <div class="w3l_offers">
+        <p>
+          SALE UP TO 70% OFF. USE CODE "SALE70%" .
+          <a href="/products">SHOP NOW</a>
+        </p>
+      </div>
+      <div class="agile-login">
+        <ul>
+          <li><a href="/profile"> My Profile </a></li>
+          <li><a href="/logout">Log Out</a></li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+  {% include 'components/middle-header.html' %} {% include
+  'components/navbar.html' %}
+
+  <div class="wrapper">
+    <!-- Check if there are flashed messages -->
+    {% with messages = get_flashed_messages() %}
+    <!-- Display flashed messages if any -->
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <div class="alert alert-danger">{{ message }}</div>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+    {% for error in errors %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endfor %}
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-md-10 col-sm-6 mx-auto">
+          <form class="" action="/results" method="post">
+
+              <div class="form-group">
+                <label for="item_weight" class="ph-area">Enter Item Weight</label>
+              <input type="text" name="item_weight" id="item_weight" class="form-control"   >
+              
+
+            <div class="form-group">
+              <label for="item_weight" class="ph-area">Select Item Fat Content</label>
+              <select class="form-control" name="item_fat_content" >
+                <option value="0">Low Fat</option>
+                <option value="1">Regular</option>
+                
+              </select>
+            </div>
+    <div class="form-group">
+            <label for="item_visibility">Enter Item Visibility</label>
+              <select class="form-control chosenn" name="item_visibility" >
+                <option value="1">Low Visibility</option>
+                <option value="2">Medium Visibility</option>
+                <option value="0">High Visibility</option>
+              </select>
+              </div>
+
+              
+              <div class="form-group">
+                <label for="Item_type" class="ph-area">Select Item Type</label>
+                <select class="form-control chosenn" name="item_type" >
+                  <option value="0">Baking Goods</option>
+                  <option value="1">Breads</option>
+                  <option value="2">Breakfast</option>
+                  <option value="3">Canned</option>
+                  <option value="4">Dairy</option>
+                  <option value="5">Frozen Foods</option>
+                  <option value="6">Fruits and Vegetables</option>
+                  <option value="7">Hard Drinks</option>
+                  <option value="8">Health and Hygiene</option>
+                  <option value="9">Household</option>
+                  <option value="10">Meat</option>
+                  <option value="11">Others</option>
+                  <option value="12">Seafood</option>
+                  <option value="13">Snack Foods</option>
+                  <option value="14">Soft Drinks</option>
+                  <option value="15">Starchy Foods</option>
+                </select>
+              </div>
+            
+            
+
+            <div class="form-group">
+              <label for="item_mrp" class="ph-area">Enter Item MRP</label>
+              <input type="text" name="item_mrp" id="item_mrp" class="form-control">
+              
+            </div>
+
+           <div class="form-group">
+              <label for="outlet_establishment_year" class="ph-area">Outlet Establishment Year (YYYY)</label>
+              <select class="form-control" name="outlet_establishment_year" >
+
+                <option value="0">1985</option>
+                <option value="1">1987</option>
+                <option value="2">1997</option>
+                <option value="3">1998</option>
+                <option value="4">1999</option>
+                <option value="5">2002</option>
+                <option value="6">2004</option>
+                <option value="7">2007</option>
+                <option value="8">2009</option>
+              </select>
+            </div>
+
+
+
+            <div class="form-group">
+              <label for="">Outlet size</label>
+              <select class="form-control chosenn" name="outlet_size" >
+                <option value="0">High</option>
+                <option value="1">Medium</option>
+                <option value="2">Small</option>
+              </select>
+            </div>
+
+           <div class="form-group">
+            <label for="">Outlet Location Type</label>
+              <select class="form-control chosenn" name="outlet_location_type" >
+                <option value="0">Tier 1</option>
+                <option value="1">Tier 2</option>
+                <option value="2">Tier 3</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+            <label for="">Outlet Location Type</label>
+              <select class="form-control chosenn" name="outlet_type" >
+                <option value="0">Grocery Store</option>
+                <option value="1">Supermarket Type1</option>
+                <option value="2">Supermarket Type2</option>
+                <option value="3">Supermarket Type3</option>
+              </select>
+            </div>
+
+
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Submit">
+            <input type="reset" class="btn btn-danger" value="Reset">
+          </div>
+                </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    {% if prediction %}
+    <div class="wrapper">
+      <h1>Sales prediction is : $  </h1>
+      <h1>{{ prediction}}</h1>
+    </div>
+    {% endif %}
+  </div>
+</body>
+{% include 'components/footer.html' %}
